@@ -46,3 +46,17 @@ char spiSendReceive(char send) {
     char rec = *((volatile char *) (&SPI1->DR)); // Read: 8-bit access, one frame (FRXTH = 1)
     return rec;
 }
+
+void writeRegister(char reg) {
+    digitalWrite(REGDATA_PIN, 0);
+    digitalWrite(CE_PIN, 0);
+    spiSendReceive(reg);
+    digitalWrite(CE_PIN, 1);
+}
+
+void writeData(char data) {
+    digitalWrite(REGDATA_PIN, 1);
+    digitalWrite(CE_PIN, 0);
+    spiSendReceive(data);
+    digitalWrite(CE_PIN, 1);
+}

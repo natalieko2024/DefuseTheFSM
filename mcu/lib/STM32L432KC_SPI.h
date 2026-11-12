@@ -27,4 +27,7 @@ void initSPI(int br, int cpol, int cpha);
  *    -- return: the character received over SPI */
 char spiSendReceive(char send);
 
+void writeRegister(char reg);
+void writeData(char data);
+
 #endif
