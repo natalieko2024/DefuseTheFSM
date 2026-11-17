@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "D:/DefuseTheFSM/fpga/src/counter.sv" "D:/DefuseTheFSM/fpga/src/display_tests.sv" "D:/DefuseTheFSM/fpga/src/palette_decoder.sv"
+-path "D:/DefuseTheFSM/fpga/radiant_proj" "D:/DefuseTheFSM/fpga/radiant_proj"
+-top display_tests
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

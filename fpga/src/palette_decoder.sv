@@ -12,7 +12,7 @@ module palette_decoder(input logic clk,
     logic [15:0] color_palette [255:0];
 
     initial begin
-        $readmemh("color_palette.mem", color_palette);
+        $readmemh("../src/color_palette.mem", color_palette);
     end
 
     always_ff @(posedge clk) begin

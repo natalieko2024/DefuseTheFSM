@@ -17,6 +17,9 @@
 module display_tests(output logic display_dotclk, display_de,
                      output logic display_hsync, display_vsync,
                      output logic [15:0] display_rgb565);
+    
+    logic int_osc; // 48MHz Clock; not very stable, might need to be replaced
+    HSOSC #(.CLKHF_DIV("0b00")) hf_osc(.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
     // DISPLAY LINE EBR START
     logic [7:0] displine_odd [239:0];
@@ -24,11 +27,11 @@ module display_tests(output logic display_dotclk, display_de,
 
     // for now these colors are constant and will not change
     initial begin
-        for (int i = 0; i < 120; i++) begin
+        for (int i = 0; i < 120; i++) begin : init_left
             displine_odd[i]  = 8'h11; // #141414
             displine_even[i] = 8'h27; // #F0F0F0
         end
-        for (int i = 120; i < 240; i++) begin
+        for (int i = 120; i < 240; i++) begin : init_right
             displine_odd[i]  = 8'h0d; // #FF55FF
             displine_even[i] = 8'h8e; // #66FF33
         end
@@ -43,8 +46,6 @@ module display_tests(output logic display_dotclk, display_de,
     end
     // DISPLAY LINE EBR END
 
-    logic int_osc; // 48MHz Clock; not very stable, might need to be replaced
-    HSOSC #(.CLKHF_DIV("0b00")) hf_osc(.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
     logic [3:0] decimated_clk; // 3MHz DOTCLK
     counter #('d15) counter0(int_osc, 'b0, 'b1, decimated_clk);
@@ -78,13 +79,13 @@ module display_tests(output logic display_dotclk, display_de,
     always_comb begin
         if (valid_data_region && vpos_count[0] == 'b0) begin // even line
             // odd vs even line needs special logic
-            displine_odd_idx = hpos_count - 30;
-            displine_even_idx = hpos_count - 30;
+            displine_odd_idx = hpos_count - 9'd30;
+            displine_even_idx = hpos_count - 9'd30;
             read_px = displine_even_col;
             display_rgb565 = decoded_color;
         end else if (valid_data_region && vpos_count[0] == 'b1) begin // odd line
-            displine_odd_idx = hpos_count - 30;
-            displine_even_idx = hpos_count - 30;
+            displine_odd_idx = hpos_count - 9'd30;
+            displine_even_idx = hpos_count - 9'd30;
             read_px = displine_odd_col;
             display_rgb565 = decoded_color;
         end else begin
