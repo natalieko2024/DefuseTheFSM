@@ -1,0 +1,265 @@
+// ============================================================================
+// General-Purpose 255-Entry RGB565 Color Palette (0x00 to 0xFE)
+// This version was initially generated using an LLM and is yet to be reviewed by a human
+// ============================================================================
+
+// --- 16-Color VGA Palette ---
+0000 // [0x00] Black (Transparent Key)   #000000
+0015 // [0x01] Dark Blue                 #0000AA
+0540 // [0x02] Dark Green                #00AA00
+0555 // [0x03] Dark Cyan                 #00AAAA
+A800 // [0x04] Dark Red                  #AA0000
+A815 // [0x05] Dark Magenta              #AA00AA
+AAA0 // [0x06] Brown / Dark Yellow       #AA5500
+AD55 // [0x07] Light Gray                #AAAAAA
+52AA // [0x08] Dark Gray                 #555555
+52BF // [0x09] Bright Blue               #5555FF
+57EA // [0x0A] Bright Green              #55FF55
+57FF // [0x0B] Bright Cyan               #55FFFF
+FAAA // [0x0C] Bright Red                #FF5555
+FABF // [0x0D] Bright Magenta            #FF55FF
+FFEA // [0x0E] Bright Yellow             #FFFF55
+FFFF // [0x0F] Pure White                #FFFFFF
+
+// --- 24-Step Smooth Grayscale Ramp ---
+0841 // [0x10] Gray 01 (Darkest)         #0A0A0A
+10A2 // [0x11] Gray 02                   #141414
+18E3 // [0x12] Gray 03                   #1E1E1E
+2945 // [0x13] Gray 04                   #282828
+3186 // [0x14] Gray 05                   #323232
+39E7 // [0x15] Gray 06                   #3C3C3C
+4228 // [0x16] Gray 07                   #464646
+528A // [0x17] Gray 08                   #505050
+5AEB // [0x18] Gray 09                   #5A5A5A
+632C // [0x19] Gray 10                   #646464
+6B6D // [0x1A] Gray 11                   #6E6E6E
+7BCF // [0x1B] Gray 12                   #787878
+8410 // [0x1C] Gray 13 (Mid Gray)        #828282
+8C71 // [0x1D] Gray 14                   #8C8C8C
+94B2 // [0x1E] Gray 15                   #969696
+9CF3 // [0x1F] Gray 16                   #A0A0A0
+AD55 // [0x20] Gray 17                   #AAAAAA
+B596 // [0x21] Gray 18                   #B4B4B4
+BDF7 // [0x22] Gray 19                   #BEBEBE
+C638 // [0x23] Gray 20                   #C8C8C8
+D69A // [0x24] Gray 21                   #D2D2D2
+DEDB // [0x25] Gray 22                   #DCDCDC
+E71C // [0x26] Gray 23                   #E6E6E6
+EF7D // [0x27] Gray 24 (Lightest)        #F0F0F0
+
+// --- 215-Color Uniform RGB Cube (6x6x6 Steps: 00,33,66,99,CC,FF) ---
+0006 // [0x28] Navy Blue                 #000033
+000C // [0x29] Deep Blue                 #000066
+0013 // [0x2A] Medium Blue               #000099
+0019 // [0x2B] Royal Blue                #0000CC
+001F // [0x2C] Pure Blue                 #0000FF
+01A0 // [0x2D] Deep Forest Green         #003300
+01A6 // [0x2E] Midnight Blue-Green       #003333
+01AC // [0x2F] Dark Slate Blue           #003366
+01B3 // [0x30] Cobalt Blue               #003399
+01B9 // [0x31] Sapphire Blue             #0033CC
+01BF // [0x32] Electric Blue             #0033FF
+0320 // [0x33] Forest Green              #006600
+0326 // [0x34] Deep Teal                 #006633
+032C // [0x35] Dark Cyan-Blue            #006666
+0333 // [0x36] Ocean Blue                #006699
+0339 // [0x37] Cerulean Blue             #0066CC
+033F // [0x38] Azure Blue                #0066FF
+04C0 // [0x39] Kelly Green               #009900
+04C6 // [0x3A] Emerald Green             #009933
+04CC // [0x3B] Persian Green             #009966
+04D3 // [0x3C] Teal                      #009999
+04D9 // [0x3D] Bondi Blue                #0099CC
+04DF // [0x3E] Deep Sky Blue             #0099FF
+0660 // [0x3F] Vibrant Green             #00CC00
+0666 // [0x40] Malachite Green           #00CC33
+066C // [0x41] Jade Green                #00CC66
+0673 // [0x42] Caribbean Green           #00CC99
+0679 // [0x43] Robin Egg Blue            #00CCCC
+067F // [0x44] Vivid Sky Blue            #00CCFF
+07E0 // [0x45] Pure Green                #00FF00
+07E6 // [0x46] Neon Green                #00FF33
+07EC // [0x47] Spring Green              #00FF66
+07F3 // [0x48] Medium Spring Green       #00FF99
+07F9 // [0x49] Aquamarine                #00FFCC
+07FF // [0x4A] Pure Cyan                 #00FFFF
+3000 // [0x4B] Dark Maroon               #330000
+3006 // [0x4C] Dark Aubergine            #330033
+300C // [0x4D] Deep Indigo               #330066
+3013 // [0x4E] Dark Violet               #330099
+3019 // [0x4F] Ultramarine Violet        #3300CC
+301F // [0x50] Electric Indigo           #3300FF
+31A0 // [0x51] Dark Olive                #333300
+31A6 // [0x52] Charcoal Gray             #333333
+31AC // [0x53] Dark Slate                #333366
+31B3 // [0x54] Slate Blue                #333399
+31B9 // [0x55] Medium Slate Blue         #3333CC
+31BF // [0x56] Neon Blue                 #3333FF
+3320 // [0x57] Olive Green               #336600
+3326 // [0x58] Moss Green                #336633
+332C // [0x59] Dark Seafoam              #336666
+3333 // [0x5A] Steel Blue                #336699
+3339 // [0x5B] Cornflower Blue           #3366CC
+333F // [0x5C] Dodger Blue               #3366FF
+34C0 // [0x5D] Grass Green               #339900
+34C6 // [0x5E] Shamrock Green            #339933
+34CC // [0x5F] Mint Leaf                 #339966
+34D3 // [0x60] Cadet Blue                #339999
+34D9 // [0x61] Pacific Blue              #3399CC
+34DF // [0x62] Capri Blue                #3399FF
+3660 // [0x63] Bright Leaf Green         #33CC00
+3666 // [0x64] Lime Punch                #33CC33
+366C // [0x65] Pastel Emerald            #33CC66
+3673 // [0x66] Medium Aquamarine         #33CC99
+3679 // [0x67] Turquoise                 #33CCCC
+367F // [0x68] Capri Sky                 #33CCFF
+37E0 // [0x69] Electric Lime             #33FF00
+37E6 // [0x6A] Screamin Green            #33FF33
+37EC // [0x6B] Light Spring Green        #33FF66
+37F3 // [0x6C] Mint Green                #33FF99
+37F9 // [0x6D] Ice Aquamarine            #33FFCC
+37FF // [0x6E] Electric Cyan             #33FFFF
+6000 // [0x6F] Maroon                    #660000
+6006 // [0x70] Dark Plum                 #660033
+600C // [0x71] Deep Purple               #660066
+6013 // [0x72] Royal Purple              #660099
+6019 // [0x73] Purple Heart              #6600CC
+601F // [0x74] Electric Violet           #6600FF
+61A0 // [0x75] Bronze Olive              #663300
+61A6 // [0x76] Taupe Brown               #663333
+61AC // [0x77] Eggplant                  #663366
+61B3 // [0x78] Amethyst                  #663399
+61B9 // [0x79] Iris Purple               #6633CC
+61BF // [0x7A] Blurple                   #6633FF
+6320 // [0x7B] Dark Avocado              #666600
+6326 // [0x7C] Sage Olive                #666633
+632C // [0x7D] Dim Gray                  #666666
+6333 // [0x7E] Cool Slate                #666699
+6339 // [0x7F] Periwinkle Blue           #6666CC
+633F // [0x80] Neon Periwinkle           #6666FF
+64C0 // [0x81] Avocado Green             #669900
+64C6 // [0x82] Fern Green                #669933
+64CC // [0x83] Sage Green                #669966
+64D3 // [0x84] Pewter Blue               #669999
+64D9 // [0x85] Carolina Blue             #6699CC
+64DF // [0x86] Maya Blue                 #6699FF
+6660 // [0x87] Apple Green               #66CC00
+6666 // [0x88] Mantis Green              #66CC33
+666C // [0x89] Pistachio                 #66CC66
+6673 // [0x8A] Seafoam Green             #66CC99
+6679 // [0x8B] Medium Turquoise          #66CCCC
+667F // [0x8C] Sky Blue                  #66CCFF
+67E0 // [0x8D] Bright Chartreuse         #66FF00
+67E6 // [0x8E] Pastel Lime               #66FF33
+67EC // [0x8F] Light Green               #66FF66
+67F3 // [0x90] Pale Mint                 #66FF99
+67F9 // [0x91] Light Aquamarine          #66FFCC
+67FF // [0x92] Ice Cyan                  #66FFFF
+9800 // [0x93] Crimson Red               #990000
+9806 // [0x94] Burgundy                  #990033
+980C // [0x95] Dark Magenta              #990066
+9813 // [0x96] Byzantine Purple          #990099
+9819 // [0x97] Dark Orchid               #9900CC
+981F // [0x98] Vivid Violet              #9900FF
+99A0 // [0x99] Rust Brown                #993300
+99A6 // [0x9A] Chestnut                  #993333
+99AC // [0x9B] Mulberry                  #993366
+99B3 // [0x9C] Plum Purple               #993399
+99B9 // [0x9D] Medium Orchid             #9933CC
+99BF // [0x9E] Bright Violet             #9933FF
+9B20 // [0x9F] Ochre                     #996600
+9B26 // [0xA0] Clay Brown                #996633
+9B2C // [0xA1] Dusty Rose                #996666
+9B33 // [0xA2] Mauve Purple              #996699
+9B39 // [0xA3] Lavender Purple           #9966CC
+9B3F // [0xA4] Soft Violet               #9966FF
+9CC0 // [0xA5] Olive Gold                #999900
+9CC6 // [0xA6] Khaki Olive               #999933
+9CCC // [0xA7] Medium Gray               #999966
+9CD3 // [0xA8] Neutral Gray              #999999
+9CD9 // [0xA9] Lavender Gray             #9999CC
+9CDF // [0xAA] Periwinkle                #9999FF
+9E60 // [0xAB] Lime Gold                 #99CC00
+9E66 // [0xAC] Yellow-Green              #99CC33
+9E6C // [0xAD] Celadon                   #99CC66
+9E73 // [0xAE] Pastel Sage               #99CC99
+9E79 // [0xAF] Pale Robin Egg            #99CCCC
+9E7F // [0xB0] Baby Blue                 #99CCFF
+9FE0 // [0xB1] Chartreuse                #99FF00
+9FE6 // [0xB2] Green-Yellow              #99FF33
+9FEC // [0xB3] Mint Cream                #99FF66
+9FF3 // [0xB4] Pale Lime                 #99FF99
+9FF9 // [0xB5] Seafoam Mist              #99FFCC
+9FFF // [0xB6] Pale Cyan                 #99FFFF
+C800 // [0xB7] Cardinal Red              #CC0000
+C806 // [0xB8] Carmine                   #CC0033
+C80C // [0xB9] Ruby Red                  #CC0066
+C813 // [0xBA] Deep Cerise               #CC0099
+C819 // [0xBB] Vivid Magenta             #CC00CC
+C81F // [0xBC] Psychedelic Purple        #CC00FF
+C9A0 // [0xBD] Burnt Orange              #CC3300
+C9A6 // [0xBE] Brick Red                 #CC3333
+C9AC // [0xBF] Raspberry                 #CC3366
+C9B3 // [0xC0] Fuchsia Rose              #CC3399
+C9B9 // [0xC1] Orchid                    #CC33CC
+C9BF // [0xC2] Heliotrope                #CC33FF
+CB20 // [0xC3] Dark Orange               #CC6600
+CB26 // [0xC4] Terracotta                #CC6633
+CB2C // [0xC5] Indian Red                #CC6666
+CB33 // [0xC6] Puce Rose                 #CC6699
+CB39 // [0xC7] Pastel Orchid             #CC66CC
+CB3F // [0xC8] Bright Lavender           #CC66FF
+CCC0 // [0xC9] Mustard Gold              #CC9900
+CCC6 // [0xCA] Tan Gold                  #CC9933
+CCCC // [0xCB] Fawn / Skin Base          #CC9966
+CCD3 // [0xCC] Rosy Brown                #CC9999
+CCD9 // [0xCD] Lilac                     #CC99CC
+CCDF // [0xCE] Light Lavender            #CC99FF
+CE60 // [0xCF] Acid Yellow               #CCCC00
+CE66 // [0xD0] Citrine                   #CCCC33
+CE6C // [0xD1] Straw Yellow              #CCCC66
+CE73 // [0xD2] Sage Sand                 #CCCC99
+CE79 // [0xD3] Silver Gray               #CCCCCC
+CE7F // [0xD4] Periwinkle Mist           #CCCCFF
+CFE0 // [0xD5] Lime Yellow               #CCFF00
+CFE6 // [0xD6] Electric Yellow-Green     #CCFF33
+CFEC // [0xD7] Canary Green              #CCFF66
+CFF3 // [0xD8] Pastel Chartreuse         #CCFF99
+CFF9 // [0xD9] Honeydew                  #CCFFCC
+CFFF // [0xDA] Alice Cyan                #CCFFFF
+F800 // [0xDB] Pure Red                  #FF0000
+F806 // [0xDC] Torch Red                 #FF0033
+F80C // [0xDD] Rose Red                  #FF0066
+F813 // [0xDE] Hot Pink                  #FF0099
+F819 // [0xDF] Shocking Pink             #FF00CC
+F81F // [0xE0] Pure Magenta              #FF00FF
+F9A0 // [0xE1] Scarlet Orange            #FF3300
+F9A6 // [0xE2] Vermilion                 #FF3333
+F9AC // [0xE3] Radical Red               #FF3366
+F9B3 // [0xE4] Wild Strawberry           #FF3399
+F9B9 // [0xE5] Razzle Dazzle Rose        #FF33CC
+F9BF // [0xE6] Flamingo Pink             #FF33FF
+FB20 // [0xE7] Pure Orange               #FF6600
+FB26 // [0xE8] Coral Orange              #FF6633
+FB2C // [0xE9] Salmon Pink               #FF6666
+FB33 // [0xEA] Tickle Me Pink            #FF6699
+FB39 // [0xEB] Ultra Pink                #FF66CC
+FB3F // [0xEC] Neon Pink                 #FF66FF
+FCC0 // [0xED] Amber / Gold              #FF9900
+FCC6 // [0xEE] Saffron Orange            #FF9933
+FCCC // [0xEF] Peach / Light Skin        #FF9966
+FCD3 // [0xF0] Pink Salmon               #FF9999
+FCD9 // [0xF1] Carnation Pink            #FF99CC
+FCDF // [0xF2] Lavender Pink             #FF99FF
+FE60 // [0xF3] Tangerine Yellow          #FFCC00
+FE66 // [0xF4] Sunglow                   #FFCC33
+FE6C // [0xF5] Mustard Yellow            #FFCC66
+FE73 // [0xF6] Apricot                   #FFCC99
+FE79 // [0xF7] Bubblegum Pink            #FFCCCC
+FE7F // [0xF8] Cotton Candy              #FFCCFF
+FFE0 // [0xF9] Pure Yellow               #FFFF00
+FFE6 // [0xFA] Lemon Yellow              #FFFF33
+FFEC // [0xFB] Laser Lemon               #FFFF66
+FFF3 // [0xFC] Canary Yellow             #FFFF99
+FFF9 // [0xFD] Cream Yellow              #FFFFCC
+FFFF // [0xFE] Pure White                #FFFFFF
