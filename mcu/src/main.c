@@ -11,32 +11,41 @@
 #include "ILI9341V.h"
 
 int main(void) {
-    pinMode(PA9, GPIO_OUTPUT);  
-    digitalWrite(PA9, 1);  
 
-    configureFlash();
-    
-    configureClock();
+    //configureFlash();
+    //configureClock();
 
     gpioEnable(GPIO_PORT_A);
     gpioEnable(GPIO_PORT_B);
     gpioEnable(GPIO_PORT_C);
 
-    RCC->APB2ENR |= (RCC_APB2ENR_TIM16EN);
-    initTIM(TIM16);
+    //RCC->APB2ENR |= (RCC_APB2ENR_TIM16EN);
+    //initTIM(TIM16);
 
-    RCC->APB2ENR |= (RCC_APB2ENR_SPI1EN);
-    // we have 80MHz clock. br set by f_clk/value
-    // ILI9341V needs at least 100 ns per clock when writing, so 10 MHz maximum. Read needs 150 ns, so ~6.6 MHz maximum (Section 18.3)
-    // br = 0b011 gives 5 MHz -> choosing this bc within both
-    initSPI(0b011, 0, 0);
+    pinMode(PB3, GPIO_OUTPUT);  
+    while (1) {
+      togglePin(PB3);
+      for (volatile int i = 0; i < 200000; i++);   // rough delay
+    }  
 
-    initDisplay();
-    // after initDisplay():
-    fillScreen(0xF800);   // red in RGB565 
+    //RCC->APB2ENR |= (RCC_APB2ENR_SPI1EN);
+    //// we have 80MHz clock. br set by f_clk/value
+    //// ILI9341V needs at least 100 ns per clock when writing, so 10 MHz maximum. Read needs 150 ns, so ~6.6 MHz maximum (Section 18.3)
+    //// br = 0b011 gives 5 MHz -> choosing this bc within both
+    //initSPI(0b011, 0, 0);
 
-    while(1) {
-        
-    }
+    //initDisplay();
+    //// after initDisplay():
+    //fillScreen(0xF800);   // red in RGB565 
 
 }
+
+//int main(void) {
+//    gpioEnable(GPIO_PORT_B);
+//    pinMode(PB3, GPIO_OUTPUT);      // LD3, the green user LED on the Nucleo
+
+//    while (1) {
+//        togglePin(PB3);
+//        for (volatile int i = 0; i < 200000; i++);   // rough delay
+//    }
+//}
