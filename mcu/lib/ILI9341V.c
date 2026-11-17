@@ -122,7 +122,7 @@ void initDisplay(void) {
     // Bit 7:6: 00 default
     // Bit 5:0 divide DOTCLK down to internal clock
     // internal clock freq = DOTCLK/(2*(PCDIV+1))
-    writeData(0b00000100); // <- assuming 70Hz frame rate and 6.35 DOTCLK (worked example in datasheet)
+    writeData(0b00000010); // <- for 30Hz frame rate 3MHz DOTCLK
     
     // NOTE 18.3.5 gives DOTCLK, sync, DE timing limits
 
