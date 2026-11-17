@@ -13,3 +13,5 @@
 *.srp
 *.dmp
 ._Real_._Math_.vhd
+.DS_Store
+Thumbs.db
