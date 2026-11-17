@@ -29,5 +29,4 @@ int main(void) {
     initSPI(0b011, 0, 0);
 
     initDisplay();
-    fillScreen(0xF800);   // red in RGB565 
 }
