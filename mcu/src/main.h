@@ -14,10 +14,10 @@
 #define MISO_PIN PB4
 #define SCK_PIN PB3
 #define CE_PIN PB0
-#define REGDATA_PIN     //todo
+#define REGDATA_PIN     PA5//todo
 
 // reset display pin
-# define LCD_RST        //todo
+# define LCD_RST        PA8//todo
 
 #define BUFF_LEN 32
 

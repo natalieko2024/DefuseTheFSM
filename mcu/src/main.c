@@ -10,7 +10,7 @@
 #include "main.h"
 #include "ILI9341V.h"
 
-void main(void) {
+int main(void) {
 
     configureFlash();
     configureClock();
