@@ -52,7 +52,7 @@ void initDisplay(void) {
     writeRegister(0xB1); // Frame Rate Control
     writeData(0x00);
     writeData(0x18);
-    writeRegister(0x21); // Display inversion off -> **datasheet mismatch, if it looks wrong we try 0x20**
+    writeRegister(0x20); // Display inversion off -> **datasheet mismatch, if it looks wrong we try 0x20**
     writeRegister(0xC7); // VCOM Control 2
     writeData(0xBE);
     writeRegister(0xF2); // 3G Gamma Control (Off)
