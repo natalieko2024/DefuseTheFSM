@@ -11,8 +11,11 @@
 #include "ILI9341V.h"
 
 int main(void) {
+    pinMode(PA9, GPIO_OUTPUT);  
+    digitalWrite(PA9, 1);  
 
     configureFlash();
+    
     configureClock();
 
     gpioEnable(GPIO_PORT_A);
@@ -29,6 +32,8 @@ int main(void) {
     initSPI(0b011, 0, 0);
 
     initDisplay();
+    // after initDisplay():
+    fillScreen(0xF800);   // red in RGB565 
 
     while(1) {
         
