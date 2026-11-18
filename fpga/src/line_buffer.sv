@@ -1,7 +1,7 @@
 // Comment to be made blah blah blah
 
 module line_buffer(input logic clk, write,
-                   input logic [7:0] line_index,
+                   input logic [8:0] line_index,
                    input logic [7:0] data_in,
                    output logic [7:0] data_out);
 
