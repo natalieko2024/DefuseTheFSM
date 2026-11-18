@@ -4,10 +4,10 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Nov 16 22:08:22 2026
+Tue Nov 17 15:11:17 2026
 
 
-Command: bitgen -w -gui -msgset D:/DefuseTheFSM/fpga/radiant_proj/promote.xml -freq 0 radiant_proj_impl_1.udb D:/DefuseTheFSM/fpga/radiant_proj/impl_1/radiant_proj_impl_1 
+Command: bitgen -w -gui -msgset C:/Users/nko/Documents/GitHub/DefuseTheFSM/fpga/radiant_proj/promote.xml -freq 0 radiant_proj_impl_1.udb C:/Users/nko/Documents/GitHub/DefuseTheFSM/fpga/radiant_proj/impl_1/radiant_proj_impl_1 
 
 Running DRC.
 DRC detected 0 errors and 0 warnings.
@@ -21,7 +21,7 @@ Preference Summary:
 
 
 Creating bit map...
-Saving bit stream in "D:/DefuseTheFSM/fpga/radiant_proj/impl_1/radiant_proj_impl_1.bin".
+Saving bit stream in "C:/Users/nko/Documents/GitHub/DefuseTheFSM/fpga/radiant_proj/impl_1/radiant_proj_impl_1.bin".
 Bitstream generation complete!
 
 Total CPU Time: 0 secs 

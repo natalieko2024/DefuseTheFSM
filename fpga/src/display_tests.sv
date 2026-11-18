@@ -12,91 +12,55 @@
 //
 // Back porch comes before data, front porch comes after
 // Display is 240 horizontal pixels and 320 vertical pixels
+//
+// HSYNC, Back Porch, Data, Front porch
 
+// be sure to write pixel data on the falling edge of dotclock
 
 module display_tests(output logic display_dotclk, display_de,
                      output logic display_hsync, display_vsync,
                      output logic [15:0] display_rgb565);
-    
+
     logic int_osc; // 48MHz Clock; not very stable, might need to be replaced
     HSOSC #(.CLKHF_DIV("0b00")) hf_osc(.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
-    // DISPLAY LINE EBR START
-    logic [7:0] displine_odd [239:0];
-    logic [7:0] displine_even [239:0];
 
-    // for now these colors are constant and will not change
-    initial begin
-        for (int i = 0; i < 120; i++) begin : init_left
-            displine_odd[i]  = 8'h11; // #141414
-            displine_even[i] = 8'h27; // #F0F0F0
-        end
-        for (int i = 120; i < 240; i++) begin : init_right
-            displine_odd[i]  = 8'h0d; // #FF55FF
-            displine_even[i] = 8'h8e; // #66FF33
-        end
-    end
+    logic [7:0] current_pixel, odd_pixel, even_pixel;
+    line_buffer odd_line(int_osc, 1'b0, hpos_count - 9'd31, 8'b0, odd_pixel); // figure all of this stuff out
+    line_buffer even_line(int_osc, 1'b0, hpos_count - 9'd31, 8'b0, even_pixel);
 
-    logic [7:0] displine_odd_idx, displine_even_idx;
-    logic [7:0] displine_odd_col, displine_even_col;
+    assign current_pixel = ((hpos_count - 9'd30) & 1'b1) ? odd_pixel : even_pixel;
 
-    always_ff @(posedge int_osc) begin
-        displine_odd_col <= displine_odd[displine_odd_idx];
-        displine_even_col <= displine_even[displine_even_idx];
-    end
-    // DISPLAY LINE EBR END
-
-
+    // These all become 0 at same clock tick
     logic [3:0] decimated_clk; // 3MHz DOTCLK
     counter #('d15) counter0(int_osc, 'b0, 'b1, decimated_clk);
-    logic [8:0] hpos_count; // Horizontal data is from 30 hpos_count to 269 hpos_count (inclusive)
+    logic [8:0] hpos_count;
     counter #('d279) counter1(int_osc, 'b0, decimated_clk == 15, hpos_count);
-    logic [8:0] vpos_count; // Vertical data is from 4 vpos_count to 323 vpos_count (inclusive)
+    logic [8:0] vpos_count;
     counter #('d327) counter2(int_osc, 'b0, hpos_count == 279 && (decimated_clk == 15), vpos_count);
 
-    // DOTCLK for the display (data latched on rising edge)
-    // display data is written at the falling edge of DOTCLK in IC diagram
-    assign display_dotclk = decimated_clk >= 8;
-    // DE for the display (active high)
-    assign display_de = valid_data_region;
-    // HSYNC and VSYNC for the display (active low)
-    assign display_hsync = ~(hpos_count < 10);
-    assign display_vsync = ~(vpos_count < 2);
-
-    // a FSM that determines whether we are in the data region or not
-    logic valid_data_region;
-    always_ff @(posedge int_osc) begin
-        if (hpos_count >= 30 && hpos_count < 270 && vpos_count >= 4 && vpos_count < 324) begin
-            valid_data_region <= 1;
-        end
-        else valid_data_region <= 0;
-    end
-
-    logic [7:0] read_px;
     logic [15:0] decoded_color;
-    palette_decoder color_decoder(int_osc, read_px, decoded_color);
+    palette_decoder color_decoder(int_osc, current_pixel, decoded_color);
 
-    always_comb begin
-        if (valid_data_region && vpos_count[0] == 'b0) begin // even line
-            // odd vs even line needs special logic
-            displine_odd_idx = hpos_count - 9'd30;
-            displine_even_idx = hpos_count - 9'd30;
-            read_px = displine_even_col;
-            display_rgb565 = decoded_color;
-        end else if (valid_data_region && vpos_count[0] == 'b1) begin // odd line
-            displine_odd_idx = hpos_count - 9'd30;
-            displine_even_idx = hpos_count - 9'd30;
-            read_px = displine_odd_col;
-            display_rgb565 = decoded_color;
-        end else begin
-            displine_odd_idx = 0;
-            displine_even_idx = 0;
-            read_px = 0;
-            display_rgb565 = 16'b0; // all black on the porches
+    // intermediate data
+    logic valid_data_region;
+    assign valid_data_region = (hpos_count >= 31 && hpos_count < 271 && vpos_count >= 4 && vpos_count < 324) ? 1 : 0;
+    // TODO figure out why these numbers are weird (why does this make stuff kinda blank?)
+
+    // check pg 49 in ILI9341V PDF
+    // synchrynous display logic
+    always_ff @(posedge int_osc) begin
+        if (decimated_clk == 3) begin // falling edge of dotclk
+            display_dotclk <= 0;
+        end else if (decimated_clk == 5) begin // a bit after falling edge of dotclk
+            display_de <= valid_data_region;
+            display_rgb565 <= valid_data_region ? decoded_color : 16'b0; // all black on the porches
+            display_hsync <= ~(hpos_count < 10); // which clock edge do we want to update at?
+            display_vsync <= ~(vpos_count < 2);
+        end else if (decimated_clk == 11) begin // rising edge of dotclk
+            display_dotclk <= 1;
         end
     end
 
 endmodule
-
-// hsync, vsync, and such might benefit from being combinational
 
