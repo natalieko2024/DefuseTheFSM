@@ -10,6 +10,5 @@
 #include <stdint.h>
 
 void initDisplay(void);
-void fillScreen(uint16_t color);
 
 #endif

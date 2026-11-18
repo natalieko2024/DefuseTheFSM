@@ -129,11 +129,3 @@ void initDisplay(void) {
     // turn display on
     writeRegister(0x29);
 }
-
-void fillScreen(uint16_t color) {
-    writeRegister(0x2C);                 // Memory Write
-    for (uint32_t i = 0; i < 240UL * 320UL; i++) {
-        writeData(color >> 8);           // high byte
-        writeData(color & 0xFF);         // low byte
-    }
-}

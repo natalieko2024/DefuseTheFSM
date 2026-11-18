@@ -12,9 +12,6 @@
 
 int main(void) {
 
-    //configureFlash();
-    //configureClock();
-
     gpioEnable(GPIO_PORT_A);
     gpioEnable(GPIO_PORT_B);
     gpioEnable(GPIO_PORT_C);

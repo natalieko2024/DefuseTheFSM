@@ -15,7 +15,9 @@ void initSPI(int br, int cpol, int cpha) {
     pinMode(MISO_PIN, GPIO_ALT);
     pinMode(SCK_PIN, GPIO_ALT);
     pinMode(CE_PIN, GPIO_OUTPUT);
+    pinMode(FPGA_CE_PIN, GPIO_OUTPUT);
     digitalWrite(CE_PIN, 1);    // adding so display starts deselected
+    digitalWrite(FPGA_CE_PIN, 1);
 
     GPIOB->AFR[0] |=_VAL2FLD(GPIO_AFRL_AFSEL3, 0b101);
     GPIOB->AFR[0] |=_VAL2FLD(GPIO_AFRL_AFSEL4, 0b101);

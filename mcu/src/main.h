@@ -14,10 +14,12 @@
 #define MISO_PIN PB4
 #define SCK_PIN PB3
 #define CE_PIN PB0
-#define REGDATA_PIN     PA8//todo
+#define REGDATA_PIN PA8
 
 // reset display pin
-# define LCD_RST        PA11//todo
+# define LCD_RST PA11
+
+# define FPGA_CE_PIN
 
 #define BUFF_LEN 32
 
