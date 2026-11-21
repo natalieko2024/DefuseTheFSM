@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "main.h"
 #include "ILI9341V.h"
+#include "sprite.h"
 
 int main(void) {
 
@@ -26,4 +27,6 @@ int main(void) {
     initSPI(0b011, 0, 0);
 
     initDisplay();
+    // send display configured message to FPGA
+    sendData(0b0, 0b0, NULL, 0b0, 0b0, 0b1, 0b0, 0b0000);
 }
