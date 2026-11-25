@@ -1,7 +1,7 @@
 module spi(input logic clk,
            input  logic sck, sdi, cs,
            output logic sdo,
-           output  logic display_configured);
+           output  logic display_configured = 1'b0);
 
     // shift registers so that sdi_sync[1] lines upu with sck_sync[1]
     logic [2:0] sck_sync, cs_sync;
@@ -18,14 +18,14 @@ module spi(input logic clk,
     assign cs_active = ~cs_sync[1];
     assign frame_start = (cs_sync[2:1] == 2'b10);
     assign frame_end = (cs_sync[2:1] == 2'b01);
-    assign sck_rise = cs_active & (sck_sync[2:1] == 2'b01);
-    
+    assign sck_rise = (sck_sync[2:1] == 2'b01); // check for rising edge
+
     logic [2:0] clk_count; // count SCK edges to determine which bit of the frame we're on
     logic [7:0] receive_shift; // shift register for receiving data
     logic [7:0] receive_data; // copy of received data packet
     logic receive_flag; // flag to indicate full packet received
     logic stall; // flag to indicate gap between CS falling and CS rising edge
-    
+
     always_ff @(posedge clk) begin
         // packet receiving (check CS edges)
         if (frame_start) begin
