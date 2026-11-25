@@ -27,6 +27,7 @@ int main(void) {
     initSPI(0b011, 0, 0);
 
     initDisplay();
+    delay_millis(TIM16, 10000);
     // send display configured message to FPGA
-    sendData(0b0, 0b0, NULL, 0b0, 0b0, 0b1, 0b0, 0b0000);
+    sendData(0b0, 0b0, NULL, 0b0, 0b0, 0b1, 0b0, 0b00001);
 }

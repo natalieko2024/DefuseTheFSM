@@ -19,7 +19,7 @@
 // reset display pin
 # define LCD_RST PA11
 
-# define FPGA_CE_PIN
+# define FPGA_CE_PIN PB6
 
 #define BUFF_LEN 32
 
